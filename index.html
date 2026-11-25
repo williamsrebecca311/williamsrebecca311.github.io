@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>砚资本 YAN CAPITAL — 与时间同行的长期资本</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0A0A0B;--bg-2:#111113;--gold:#C9A96A;--gold-dim:#8A7444;--txt:#EDEAE3;--txt-2:#9A968D;--line:rgba(201,169,106,.22);
+    --serif:"Times New Roman","Songti SC",Georgia,serif;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--txt);font-family:var(--serif);
+    line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:.01em;
+    background-image:radial-gradient(1200px 600px at 78% -10%,rgba(201,169,106,.10),transparent 60%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 48px}
+  .sans{font-family:"Helvetica Neue","PingFang SC",Arial,sans-serif}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:60;background:linear-gradient(180deg,rgba(10,10,11,.95),rgba(10,10,11,.55));backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,169,106,.14)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:88px}
+  .brand{display:flex;flex-direction:column;line-height:1.15}
+  .brand b{font-size:19px;letter-spacing:.42em;font-weight:400;color:var(--txt)}
+  .brand span{font-family:"Helvetica Neue",Arial,sans-serif;font-size:9px;letter-spacing:.34em;color:var(--gold-dim);margin-top:5px}
+  .nav ul{display:flex;gap:42px;list-style:none;font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:12px;letter-spacing:.16em;color:var(--txt-2);text-transform:uppercase}
+  .nav ul a:hover{color:var(--gold)}
+  .nav .enter{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:11.5px;letter-spacing:.18em;color:var(--gold);border:1px solid var(--line);padding:11px 24px;text-transform:uppercase;transition:.3s}
+  .nav .enter:hover{background:var(--gold);color:#0A0A0B}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:520px;height:520px;border:1px solid rgba(201,169,106,.16);border-radius:50%;pointer-events:none}
+  .hero::before{content:"";position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:340px;height:340px;border:1px solid rgba(201,169,106,.1);border-radius:50%;pointer-events:none}
+  .hero .kicker{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:11px;letter-spacing:.34em;color:var(--gold);text-transform:uppercase;margin-bottom:40px;display:flex;align-items:center;gap:16px}
+  .hero .kicker::after{content:"";width:64px;height:1px;background:var(--gold-dim)}
+  h1{font-size:clamp(42px,6vw,82px);line-height:1.14;font-weight:400;letter-spacing:.02em;max-width:15ch}
+  h1 i{font-style:italic;color:var(--gold)}
+  .hero p{margin-top:38px;max-width:520px;font-size:16.5px;color:var(--txt-2);line-height:2}
+  .hero-cta{display:flex;gap:0;margin-top:52px}
+  .btn{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:16px 40px;border:1px solid var(--line);transition:.35s}
+  .btn.solid{background:var(--gold);border-color:var(--gold);color:#0A0A0B}
+  .btn.solid:hover{background:transparent;color:var(--gold)}
+  .btn.line{margin-left:-1px;color:var(--txt-2)}
+  .btn.line:hover{color:var(--gold);border-color:var(--gold)}
+  .scroll-note{position:absolute;bottom:44px;left:48px;font-family:"Helvetica Neue",sans-serif;font-size:10px;letter-spacing:.3em;color:var(--gold-dim);text-transform:uppercase}
+  .scroll-note::after{content:"";display:block;width:1px;height:46px;background:linear-gradient(180deg,var(--gold-dim),transparent);margin-top:14px}
+
+  /* STATS */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:52px 34px;border-right:1px solid rgba(201,169,106,.12)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-size:44px;font-weight:400;color:var(--gold);letter-spacing:.01em}
+  .stat b small{font-size:18px;color:var(--txt-2);margin-left:4px}
+  .stat span{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:11.5px;letter-spacing:.14em;color:var(--txt-2);display:block;margin-top:12px}
+
+  /* SECTION共通 */
+  section.block{padding:130px 0}
+  .head{display:grid;grid-template-columns:180px 1fr;gap:60px;margin-bottom:76px}
+  .head .label{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:10.5px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;padding-top:12px;border-top:1px solid var(--gold-dim);align-self:start}
+  .head h2{font-size:clamp(28px,3.4vw,44px);font-weight:400;line-height:1.35;max-width:22ch}
+  .head h2 i{font-style:italic;color:var(--gold)}
+
+  /* STRATEGY */
+  .strat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,169,106,.14)}
+  .strat article{background:var(--bg);padding:52px 40px 60px;transition:.4s}
+  .strat article:hover{background:#141416}
+  .strat .no{font-family:"Helvetica Neue",sans-serif;font-size:11px;letter-spacing:.24em;color:var(--gold-dim)}
+  .strat h3{font-size:24px;font-weight:400;margin:26px 0 18px}
+  .strat p{font-size:14.5px;color:var(--txt-2);line-height:1.95}
+  .strat ul{list-style:none;margin-top:26px;font-size:13px;color:var(--txt-2)}
+  .strat li{padding:9px 0;border-top:1px solid rgba(201,169,106,.1)}
+  .strat li::before{content:"— ";color:var(--gold-dim)}
+
+  /* ADVANTAGE */
+  .adv{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+  .adv-list{list-style:none}
+  .adv-list li{padding:28px 0;border-bottom:1px solid rgba(201,169,106,.14);display:grid;grid-template-columns:52px 1fr;gap:22px}
+  .adv-list li:first-child{border-top:1px solid rgba(201,169,106,.14)}
+  .adv-list .n{font-family:"Helvetica Neue",sans-serif;font-size:11px;color:var(--gold);letter-spacing:.14em;padding-top:7px}
+  .adv-list h4{font-size:19px;font-weight:400;margin-bottom:8px}
+  .adv-list p{font-size:14px;color:var(--txt-2);line-height:1.9}
+  .quote{border-left:1px solid var(--gold-dim);padding-left:44px}
+  .quote blockquote{font-size:22px;line-height:1.85;font-style:italic;color:#DAD5C9}
+  .quote cite{display:block;margin-top:28px;font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:11.5px;letter-spacing:.16em;color:var(--gold);font-style:normal}
+
+  /* PORTFOLIO */
+  .port{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  .card{border:1px solid rgba(201,169,106,.16);padding:44px;transition:.4s;position:relative;overflow:hidden}
+  .card:hover{border-color:var(--gold);background:#111113}
+  .card .tag{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:10px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+  .card h3{font-size:22px;font-weight:400;margin:20px 0 14px}
+  .card p{font-size:14px;color:var(--txt-2);line-height:1.9}
+  .card .res{margin-top:28px;display:flex;gap:44px;font-family:"Helvetica Neue",sans-serif}
+  .card .res b{font-size:26px;color:var(--gold);font-weight:400;display:block}
+  .card .res span{font-size:10.5px;letter-spacing:.14em;color:var(--txt-2)}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:90px}
+  .about p{font-size:15px;color:var(--txt-2);line-height:2.05;margin-bottom:22px}
+  .about p strong{color:var(--txt);font-weight:400}
+  .creed{border-top:1px solid var(--line);padding-top:34px;margin-top:34px}
+  .creed div{display:flex;gap:20px;padding:14px 0;font-size:14px;color:var(--txt-2)}
+  .creed div span{color:var(--gold);font-size:11px;letter-spacing:.2em;min-width:56px;padding-top:3px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);background:#08080A;padding:88px 0 34px}
+  .fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:50px;padding-bottom:66px;border-bottom:1px solid rgba(201,169,106,.12)}
+  .fgrid h5{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:10.5px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;font-weight:400}
+  .fgrid ul{list-style:none;display:grid;gap:13px;font-size:13.5px;color:var(--txt-2)}
+  .fgrid a:hover{color:var(--gold)}
+  .fgrid .addr{font-size:13.5px;color:var(--txt-2);line-height:2;max-width:320px}
+  .fbot{display:flex;justify-content:space-between;padding-top:30px;font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:11px;letter-spacing:.1em;color:#5F5C56}
+  .disclaim{font-family:"Helvetica Neue","PingFang SC",sans-serif;font-size:11px;color:#4F4C47;line-height:1.9;padding:26px 0 0;max-width:900px}
+
+  @media(max-width:980px){
+    .wrap{padding:0 22px}
+    .nav ul{display:none}
+    .hero{padding-top:120px;min-height:auto}
+    .hero::before,.hero::after{display:none}
+    .stats .wrap{grid-template-columns:1fr 1fr}
+    .stat{border-bottom:1px solid rgba(201,169,106,.12);padding:34px 20px}
+    .head{grid-template-columns:1fr;gap:24px;margin-bottom:48px}
+    section.block{padding:70px 0}
+    .strat{grid-template-columns:1fr}
+    .adv{grid-template-columns:1fr;gap:44px}
+    .port{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr;gap:40px}
+    .fgrid{grid-template-columns:1fr 1fr}
+    .hero-cta{flex-direction:column;gap:12px}
+    .btn.line{margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand"><b>砚资本</b><span>YAN CAPITAL</span></a>
+    <ul>
+      <li><a href="#strategy">投资策略</a></li>
+      <li><a href="#advantage">核心优势</a></li>
+      <li><a href="#portfolio">代表案例</a></li>
+      <li><a href="#about">关于砚</a></li>
+    </ul>
+    <a href="#contact" class="enter">机构合作</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Since 2009 · Shanghai / Hong Kong</div>
+    <h1>与时间同行的<br><i>长期资本</i></h1>
+    <p>砚资本专注于家族财富与产业资本的长期配置。我们不追逐周期，而是在周期的两端寻找被低估的确定性——以十五年为一个刻度，衡量每一笔投入的真实价值。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn solid">预约面谈</a>
+      <a href="#strategy" class="btn line">了解策略</a>
+    </div>
+  </div>
+  <div class="scroll-note">Scroll</div>
+</div>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>186<small>亿</small></b><span>在管资产规模（人民币）</span></div>
+    <div class="stat"><b>16<small>年</small></b><span>连续管理周期</span></div>
+    <div class="stat"><b>47</b><span>家族与机构客户</span></div>
+    <div class="stat"><b>12.8<small>%</small></b><span>十年年化复合回报</span></div>
+  </div>
+</div>
+
+<section class="block" id="strategy">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Investment Strategy</div>
+      <h2>三条主线，一种<i>耐心</i></h2>
+    </div>
+    <div class="strat">
+      <article>
+        <div class="no">01 / PRIVATE EQUITY</div>
+        <h3>私募股权</h3>
+        <p>聚焦先进制造、医疗健康与消费服务的成长期企业，以少数股权介入，参与治理而不干预经营。</p>
+        <ul><li>单笔 1—8 亿元</li><li>持有周期 5—8 年</li><li>董事席位与观察员机制</li></ul>
+      </article>
+      <article>
+        <div class="no">02 / FAMILY OFFICE</div>
+        <h3>家族办公室</h3>
+        <p>为单一家族提供跨代际的资产架构、税务安排与慈善信托设计，形成可传承的治理文件。</p>
+        <ul><li>全权委托 / 顾问制</li><li>多币种、多法域配置</li><li>年度家族理事会</li></ul>
+      </article>
+      <article>
+        <div class="no">03 / M&A ADVISORY</div>
+        <h3>并购顾问</h3>
+        <p>为产业方提供买方顾问服务，从标的筛选、估值建模到交割后的整合方案一体化交付。</p>
+        <ul><li>跨境交易结构设计</li><li>独立财务顾问意见</li><li>投后百日整合计划</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="advantage" style="background:#0C0C0E;border-top:1px solid rgba(201,169,106,.12);border-bottom:1px solid rgba(201,169,106,.12)">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Our Edge</div>
+      <h2>不追求规模，只追求<i>判断力</i></h2>
+    </div>
+    <div class="adv">
+      <ul class="adv-list">
+        <li><span class="n">I</span><div><h4>只做能力圈内的事</h4><p>十六年间我们主动放弃过 40 余个热门赛道的项目。不投看不懂的生意，是砚资本唯一没有例外的纪律。</p></div></li>
+        <li><span class="n">II</span><div><h4>投后不是报表</h4><p>每位合伙人平均只负责 4 个项目，每年至少 6 次实地走访。我们介入的是战略议题，不是月度数据。</p></div></li>
+        <li><span class="n">III</span><div><h4>结构先于收益</h4><p>在讨论回报之前，先把退出路径、治理条款与极端情形下的处置方案写清楚。</p></div></li>
+      </ul>
+      <div class="quote">
+        <blockquote>“好的投资不需要每天被讨论。它只需要在十年之后，依然站得住。”</blockquote>
+        <cite>— 陈砚，创始合伙人</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="portfolio">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">Selected Deals</div>
+      <h2>部分已投与已退出<i>案例</i></h2>
+    </div>
+    <div class="port">
+      <div class="card">
+        <span class="tag">Advanced Manufacturing</span>
+        <h3>精工精密 · 高端机床零部件</h3>
+        <p>2016 年领投 B 轮，协助企业完成从单一客户到全球 Tier-1 供应链的跨越，并在德国设立研发中心。</p>
+        <div class="res"><div><b>7.4×</b><span>MOIC</span></div><div><b>2024</b><span>并购退出</span></div></div>
+      </div>
+      <div class="card">
+        <span class="tag">Healthcare</span>
+        <h3>和瑞医疗 · 介入器械平台</h3>
+        <p>2018 年参与重组，推动三条产品线取得三类证，2023 年于科创板上市，仍持有部分头寸。</p>
+        <div class="res"><div><b>5.1×</b><span>MOIC</span></div><div><b>2023</b><span>IPO</span></div></div>
+      </div>
+      <div class="card">
+        <span class="tag">Consumer</span>
+        <h3>山野茶事 · 新中式茶饮</h3>
+        <p>2020 年 A 轮进入，重构加盟体系与供应链，门店数从 38 家增至 620 家。</p>
+        <div class="res"><div><b>3.9×</b><span>账面回报</span></div><div><b>持有中</b><span>状态</span></div></div>
+      </div>
+      <div class="card">
+        <span class="tag">Family Office</span>
+        <h3>某制造业家族 · 跨代传承架构</h3>
+        <p>设计境内家族信托与境外持股双层结构，完成二代接班与股权激励的同步落地。</p>
+        <div class="res"><div><b>3</b><span>法域协同</span></div><div><b>2021</b><span>设立年度</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about" style="border-top:1px solid rgba(201,169,106,.12)">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">About YAN</div>
+      <h2>一间安静的<i>投资机构</i></h2>
+    </div>
+    <div class="about">
+      <div>
+        <p><strong>砚资本成立于 2009 年</strong>，前身为一家制造业集团的战略投资部。2013 年独立运营，目前在上海与香港设有办公室，团队 32 人，其中投资团队 19 人。</p>
+        <p>我们不做公开募资，不设年度投资指标，也不向客户承诺任何形式的固定回报。所有的判断都发生在会议室里，而非路演现场。</p>
+        <p>十六年间，我们陪伴过 14 家企业从 A 轮走到上市，也见证过 9 次失败。后者教会我们的，比前者更多。</p>
+      </div>
+      <div>
+        <div class="creed">
+          <div><span>信条 I</span>把客户的资金，当作自己的资金</div>
+          <div><span>信条 II</span>不做无法向家人解释的交易</div>
+          <div><span>信条 III</span>退出比进入更需要耐心</div>
+        </div>
+        <p style="margin-top:40px">上海 · 静安区南京西路 1788 号 45 层<br>香港 · 中环皇后大道中 15 号 32 层</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="#" class="brand" style="margin-bottom:22px"><b>砚资本</b><span>YAN CAPITAL</span></a>
+        <p class="addr">上海 · 静安区南京西路 1788 号 45 层<br>香港 · 中环皇后大道中 15 号 32 层<br>电话：+86 21 6288 0099</p>
+      </div>
+      <div><h5>业务</h5><ul><li><a href="#strategy">私募股权</a></li><li><a href="#strategy">家族办公室</a></li><li><a href="#strategy">并购顾问</a></li></ul></div>
+      <div><h5>机构</h5><ul><li><a href="#about">关于砚资本</a></li><li><a href="#portfolio">投资案例</a></li><li><a href="#">合规与披露</a></li></ul></div>
+      <div><h5>联系</h5><ul><li>inquiry@yancap.cn</li><li>career@yancap.cn</li><li>媒体合作</li></ul></div>
+    </div>
+    <p class="disclaim">本页面内容仅为机构介绍，不构成任何投资建议、要约或要约邀请。私募基金管理人登记编号 P100xxxx。投资有风险，决策需谨慎；过往业绩不代表未来表现。</p>
+    <div class="fbot">
+      <span>© 2026 YAN CAPITAL. All rights reserved.</span>
+      <span>法律声明 · 隐私政策</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
